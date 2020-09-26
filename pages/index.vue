@@ -13,33 +13,33 @@
               <span>首页</span>
               <img src="~/assets/img/index1.png" alt="">
             </nuxt-link>
-            <nuxt-link class="middle-one-box-right-item" :to="{path: `/about`}">
+            <nuxt-link class="middle-one-box-right-item" :to="{path: `/`}">
               <span>展会专区</span>
             </nuxt-link>
-            <nuxt-link class="middle-one-box-right-item" :to="{path: `/about`}">
+            <nuxt-link class="middle-one-box-right-item" :to="{path: `/onlineMerchant`}">
               <span>在线招商</span>
             </nuxt-link>
-            <nuxt-link class="middle-one-box-right-item" :to="{path: `/about`}">
-              商家展示
+            <nuxt-link class="middle-one-box-right-item" :to="{path: `/merchants`}">
+              <span>商家展示</span>
             </nuxt-link>
-            <nuxt-link class="middle-one-box-right-item" :to="{path: `/about`}">
-              新闻中心
+            <nuxt-link class="middle-one-box-right-item" :to="{path: `/news`}">
+              <span>新闻中心</span>
             </nuxt-link>
-            <nuxt-link class="middle-one-box-right-item" :to="{path: `/about`}">
-              人才招聘
+            <nuxt-link class="middle-one-box-right-item" :to="{path: `/talent`}">
+              <span>人才招聘</span>
             </nuxt-link>
             <nuxt-link style="padding:0 0 0 20px" class="middle-one-box-right-item" :to="{path: `/about`}">
-              关于我们
+              <span>关于我们</span>
             </nuxt-link>
           </div>
         </div>
 
         <div class="middle-box-two">
-          <img src="~/assets/img/index2.png" alt="">
-          <div class="middle-box-two-tian">02</div>
-          <div class="middle-box-two-shi">02</div>
-          <div class="middle-box-two-fen">02</div>
-          <div class="middle-box-two-miao">02</div>
+          <img src="https://hongshuye01.oss-cn-beijing.aliyuncs.com/mall/banner/image/20200906/8ae3e65f5a194c6e934faff5be3937ae.png" alt="">
+          <div class="middle-box-two-tian">{{days}}</div>
+          <div class="middle-box-two-shi">{{hours}}</div>
+          <div class="middle-box-two-fen">{{minutes}}</div>
+          <div class="middle-box-two-miao">{{seconds}}</div>
           <img src="~/assets/img/index3.png" alt="" class="index3-img">
         </div>
         <img src="~/assets/img/index4.png" alt="" class="index4-img">
@@ -47,13 +47,13 @@
         <div class="middle-box-three">
           <img src="~/assets/img/index5.png" alt="" class="index5-img">
           <div class="middle-box-three-m">
-            <img src="~/assets/img/index6.png" alt="">
+            <img src="~/assets/img/index6.png" alt="" class="index6-img">
             <div class="address">公司地址：河北廊坊胜芳国际家具博览中心</div>
           </div>
         </div>
 
         <div class="middle-box-four">
-          <img src="@/assets/img/index7.png" alt="" class="index7-img">
+          <img src="~/assets/img/index7.png" alt="" class="index7-img">
         </div>
 
         <div class="middle-box-five">
@@ -66,9 +66,9 @@
               <p class="middle-box-five-m-r-p">传统与现代的碰撞，是现代生活方式与传统文化其优秀部分的完美糅合，撇去了古典元素的老成，却多了一份自然、...</p>
 
               <div class="middle-box-five-m-r-t-list">
-                <div class="middle-box-five-m-r-t-list-item" v-for="i in 5">
+                <div class="middle-box-five-m-r-t-list-item" v-for="(i, index) in 5" :key="index">
                   <div class="middle-box-five-m-r-t-list-item-l">
-                    <img src="@/assets/img/index8.png" alt="">
+                    <img src="~/assets/img/index8.png" alt="">
                     <h4>胡桃木家具设计风格</h4>
                   </div>
                   <div class="middle-box-five-m-r-t-list-item-r">
@@ -83,20 +83,24 @@
         <div class="middle-box-six">
           <img src="@/assets/img/index9.png" alt="" class="index9-img">
           <div class="middle-box-six-m">
-            <img src="@/assets/img/index10.png" alt="">
-            <div class="middle-box-six-btn1 btn-active">实时地图</div>
-            <div class="middle-box-six-btn2">交通图</div>
-            <div class="middle-box-six-adress">
-              <h3>场地：</h3>
-              <p>胜芳国际家具博览中心</p>
+            <img src="@/assets/img/index10.png" alt="" class="index10-img">
+            <div class="middle-box-six-btn1" :style="{color:(tabnum == 1 ? '#FF6E0A' : '#FFF'),border:(tabnum == 1 ? '1px solid #FF6E0A' : '1px solid #FFFFFF')}" @click="tabBtn(1)">实时地图</div>
+            <div class="middle-box-six-btn2" :style="{color:(tabnum == 2 ? '#FF6E0A' : '#FFF'),border:(tabnum == 2 ? '1px solid #FF6E0A' : '1px solid #FFFFFF')}" @click="tabBtn(2)">交通图</div>
+            <div v-if="tabnum == 1">
+              <div class="middle-box-six-adress">
+                <h3>场地：</h3>
+                <p>胜芳国际家具博览中心</p>
+              </div>
+              <div class="middle-box-six-adress middle-box-six-adress1">
+                <h3>场地：</h3>
+                <p>成都新国际会展中心</p>
+              </div>
+              <div class="middle-box-six-map">
+                地图展示
+              </div>
             </div>
-            <div class="middle-box-six-adress middle-box-six-adress1">
-              <h3>场地：</h3>
-              <p>成都新国际会展中心</p>
-            </div>
-            <div class="middle-box-six-map">
-              地图展示
-            </div>
+            <img v-else src="@/assets/img/jtnrzn.png" alt="" class="jtnrzn-img">
+            
           </div>
         </div>
 
@@ -104,6 +108,7 @@
           <img src="@/assets/img/index12.png" alt="" class="index12-img">
           <div class="common-middel middle-box-seven-m">
             <img src="@/assets/img/index13.png" alt="" class="index13-img">
+            <SwiperDetail></SwiperDetail>
           </div>
         </div>
 
@@ -111,6 +116,7 @@
           <img src="@/assets/img/index14.png" alt="" class="index14-img">
           <div class="common-middel middle-box-eight-m">
             <img src="@/assets/img/index15.png" alt="" class="index15-img">
+            <SwiperCategory></SwiperCategory>
           </div>
         </div>
 
@@ -133,31 +139,113 @@
           </div>
         </div>
         
-
+        <!-- 左边小人 -->
+        <nuxt-link :to="{path: `/onlineMerchant`}">
+          <img src="@/assets/img/ruzu.png" alt="" class="ruzu-img">
+        </nuxt-link>
+        <!-- 右边 @mouseout="lianxiMouseover(2)"  v-if="rightlianxibig == 1"  v-else -->
+        <img src="@/assets/img/lianxi.png" alt="" class="lianxi-img">
+        <div class="lianxibig-box" >
+          <img src="@/assets/img/lianxibig.png"  alt="" class="lianxibig-img">
+          <div class="lianxibig-box-one"></div>
+           <!-- <div class="lianxibig-box-two"></div> -->
+           <img src="@/assets/img/erweima.png" alt="" class="erweima1">
+         <!-- <img v-if="erweima2" src="@/assets/img/erweima.png" alt="" class="erweima2"> -->
+        </div>
+        
       </div>
     <!-- </div> -->
-    <Footer/>
   </div>
 </template>
  
 <script>
-import Footer from '@/components/Footer';
+import moment from 'moment'
+import SwiperDetail from '@/components/SwiperDetail';
+import SwiperCategory from '@/components/SwiperCategory';
 export default {
   data() {
     return {
       // screeWidth:0,
+      tabnum:1,//交通指南切换
+      rightlianxibig:1,//右下角联系
+      erweima1:false,
+      erweima2:false,
+      days:'00',
+      hours:'00',
+      minutes:'00',
+      seconds:'00',
     };
   },
+  components: {
+    SwiperDetail,
+  },
   created(){
-    
+    setInterval(() => {
+      let t1= moment();
+      let t2 = moment('2020-10-16 00:00:00');
+      let dura = t2.format('x') - t1.format('x');
+      let tempTime = moment.duration(dura);
+      let T = ''
+      this.days = `${this.time(tempTime.days())}`
+      this.hours = `${this.time(tempTime.hours())}`
+      this.minutes = `${this.time(tempTime.minutes())}`
+      this.seconds = `${this.time(tempTime.seconds())}`
+    },1000)
   },
   beforeMount() {
     // this.screeWidth = window.screen.width
   },
+  methods: {
+    time(value) {
+      if(value < 10){
+        return `0${value}`
+      } else {
+        return value;
+      }
+    },
+    tabBtn(a){
+      if(a == 1){
+        this.tabnum = 1
+      }else{
+        this.tabnum = 2
+      }
+    },
+    lianxiMouseleave(a){
+      console.log('jingru')
+      if(a == 1){
+        this.rightlianxibig = 2
+      }else{
+        this.rightlianxibig = 1
+      }
+    },
+    lianxiMouseover(a){
+      console.log('离开')
+      setTimeout(() => {
+        if(a == 2){
+          this.rightlianxibig = 1
+        }else{
+          this.rightlianxibig = 2
+        }  
+      }, 1100);
+    },
+    erweima1Mousemove(){
+      // this.rightlianxibig = 2
+      this.erweima1 = true
+    },
+    erweima1Mouseout(){
+      this.erweima1 = false
+    },
+    erweima2Mousemove(){
+      this.erweima2 = true
+    },
+    erweima2Mouseout(){
+      this.erweima2 = false
+    },
+  }
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   width: 100%;
   /* background-image: url(../assets/img/indexbg.png);
@@ -270,6 +358,7 @@ export default {
   width: 100%;
   max-width: 1400px;
   margin: auto;
+  overflow: hidden;
 }
 .index4-img{
   display: block;
@@ -281,6 +370,16 @@ export default {
   top: -220px;
   left: 0;
   z-index: -1;
+}
+.index6-img{
+  -webkit-transition:all 1s; 
+  -moz-transition:all 1s;
+  -o-transition:all 1s;
+}
+.index6-img:hover{
+  -webkit-transform:scale(1.1); 
+  -moz-transform:scale(1.1); 
+  -o-transform:scale(1.1); 
 }
 .address{
   font-family: PingFangSC-Regular;
@@ -360,22 +459,26 @@ export default {
 }
 .middle-box-six-m{
   position: relative;
-  height: 1030px;
-}
-.index9-img{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.middle-box-six-m{
+  height: 1040px;
   width: 100%;
   max-width: 1400px;
   margin: auto;
 }
-.middle-box-six-m > img{
+.index9-img{
+  width: 100%;
+  height: 1040px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.index10-img{
   margin: auto;
   padding: 54px;
+  display: block;
+}
+.jtnrzn-img{
+  margin: 80px auto 0;
   display: block;
 }
 .middle-box-six-btn1{
@@ -460,6 +563,7 @@ export default {
 }
 .index14-img{
   width: 100%;
+  height: 686px;
   position: absolute;
   left: 0;
   top: 0;
@@ -473,7 +577,7 @@ export default {
   height: 60px;
   display: block;
   margin: auto;
-  padding: 44px 0;
+  padding: 44px 0 0;
 }
 .middle-box-nine{
   position: relative;
@@ -502,5 +606,68 @@ export default {
 }
 .middle-box-nine-m-ping > img{
   margin: 0 0 20px 0;
+}
+.ruzu-img{
+  position: fixed;
+  left: 0;
+  top: 75%;
+  z-index: 999;
+}
+/* 原来小图片 */
+.lianxi-img{
+  position: fixed;
+  right: 0;
+  bottom: 10%;
+  z-index: 998;
+}
+.lianxibig-box{
+  position: fixed;
+  right: 0;
+  bottom: 7%;
+  z-index: 999;
+}
+.lianxibig-img{
+  /* width: 160px;
+  height: 418px; */
+  width: 80px;
+  height: 240px;
+  opacity: 0;
+  transition:width 1s,height 1s;
+}
+.lianxibig-img:hover{
+  width:160px;
+  height: 418px;
+  opacity: 1;
+}
+.lianxibig-box-one{
+  width: 160px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 196px;
+  z-index: 1000;
+  /* background: forestgreen; */
+}
+/* .lianxibig-box-one:hover + .erweima1{
+  opacity: 1;
+} */
+.lianxibig-box-two{
+  width: 160px;
+  height: 120px;
+  position: absolute;
+  left: 0;
+  top: 297px;
+  /* background: red; */
+}
+.erweima1{
+  position: absolute;
+  top: 95px;
+  left: -160px;
+  opacity: 0;
+}
+.erweima2{
+  position: absolute;
+  bottom: 25px;
+  left: -160px;
 }
 </style>

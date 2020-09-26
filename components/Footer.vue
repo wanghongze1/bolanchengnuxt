@@ -6,23 +6,13 @@
               <p>友情链接：</p>
               <a target="_blank" href="http://www.sffa.cn/index.html">胜芳家协</a>
               <a target="_blank" href="http://www.sfdzh.com/">胜芳大杂烩</a>
-              
           </div>
-          
+          <div class="footer-box-m-b">
+              <p>电话:0316-7896115 Email:service@sf-ifc.com 胜芳家具,家具展会,家具批发 请选择胜芳国际家具博览城 ICP证：冀ICP备14005185号-1</p>
+              <p>Copyright © 2005 - 2020 www.sf-ifc.com All Rights Reserved 版权所有：胜芳国际家具博览城 地址：河北省廊坊市胜芳镇政府北行</p>
+              <p>违法和不良信息举报电话举报电话：0316-7896115 违法和不良信息举报邮箱：sf_ifc@126.com</p>
+          </div>
       </div>
-    <!-- <div class="footer-cont-list">
-      <a :href="`${curCity}/aboutus`">关于我们</a>
-      <a :href="`${curCity}/guanqihui`">企业租房</a>
-      <a href="http://www.longfor.com/">龙湖集团</a>
-    </div>
-    <p class="phone">
-      400-001-1166
-    </p>
-    <p class="copy-right">
-      Copyright 2018 冠寓版权所有 冠寓商业管理有限公司
-      <br/>
-      <a target="_blank" href="http://www.beian.miit.gov.cn/">京ICP备17060342号</a>
-    </p> -->
   </div>
 </template>
 
@@ -51,7 +41,7 @@ export default {
 .footer-box{
     width: 100%;
     height: 417px;
-    background: url(../assets/img/footer.png);
+    background: url(https://hongshuye01.oss-cn-beijing.aliyuncs.com/mall/banner/image/20200906/b84550f348b54adea5ec593b9aaf48fc.png);
     background-size: 100% 417px;
     position: relative;
 }
@@ -80,5 +70,13 @@ export default {
     font-size: 16px;
     color: #ccc;
     padding: 0 0 0 60px;
+}
+.footer-box-m-b{
+    font-family: PingFang-SC-Bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 36px;
+    text-align: center;
+    margin: 55px 0 0 0;
 }
 </style>
